@@ -40,7 +40,12 @@
                      [style.width.px]='imageWidth'
                      [style.margin.px]='imageMargin'>
               </td>
-              <td>{{ product.productName | reverseStr }}</td>
+              <td>
+                <a [routerLink]="['/products', product.productId]">
+                  <!--If want Product Name reverse, use this line {{ product.productName | reverseStr }}-->
+                  {{ product.productName }}
+                </a>
+              </td>
               <td>{{ product.productCode | lowercase | convertToSpace: '-'}}</td>
               <td>{{ product.releaseDate }}</td>
               <td>{{ product.price }}</td>

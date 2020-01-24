@@ -1,5 +1,24 @@
+<p> {{pageTitle}} </p>
+
 <div class="card" *ngIf='product'>
     <div class="card-header">
         {{pageTitle + ': ' + product.productName}}
+    </div>
+
+    <div>
+        <table>
+            <tr>
+                <!-- ppt 104page처럼 만들기 과제(back버튼 제외) -->
+                <td>
+                    {{product.productName}}
+                </td>
+                <td>
+                    {{product.productCode}}
+                </td>
+                <td>
+                    {{product.releaseDate}}
+                </td>
+            </tr>
+        </table>
     </div>
 </div>
