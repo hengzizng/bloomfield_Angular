@@ -9,14 +9,59 @@
         <table>
             <tr>
                 <!-- ppt 104page처럼 만들기 과제(back버튼 제외) -->
-                <td>
+                <td width=250>
+                    Name:
+                </td>
+                <td width=400>
                     {{product.productName}}
+                </td>
+                <td rowspan='6' width=400>
+                    <img
+                     [src]='product.imageUrl'
+                     [title]='product.productName'
+                     [style.width.px]='imageWidth'
+                     [style.margin.px]='imageMargin'>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Code:
                 </td>
                 <td>
                     {{product.productCode}}
                 </td>
+            </tr>
+            <tr>
+                <td>
+                    Description:
+                </td>
+                <td>
+                    {{product.description}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Availability:
+                </td>
                 <td>
                     {{product.releaseDate}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Price:
+                </td>
+                <td>
+                    {{product.price}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    5 Star Rating:
+                </td>
+                <td>
+                    <pm-star [rating]='product.starRating'  (notify)='onNotify($event)'>
+                    </pm-star>
                 </td>
             </tr>
         </table>
