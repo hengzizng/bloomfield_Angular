@@ -8,8 +8,11 @@ import { ViewModule } from './view/view.module';
 import { RelatedProductsModule } from './related-products/related-products.module';
 import { ConvertToSpacePipe } from './shared/convertToSpace.component'
 import { StarComponent } from './shared/star.component';
-import { ReverseStrPipe } from './shared/reverseStr.component'
-import { HttpClientModule } from '@angular/common/http'
+import { ReverseStrPipe } from './shared/reverseStr.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { WelcomeComponent } from './home/welcome.component';
+import { ProductDetailComponent } from './products/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +20,23 @@ import { HttpClientModule } from '@angular/common/http'
     ProductListComponent,
     ConvertToSpacePipe,
     StarComponent,
-    ReverseStrPipe
+    ReverseStrPipe,
+    WelcomeComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
     ViewModule,
     RelatedProductsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      { path: 'products', component: ProductListComponent },
+      { path: 'welcome', component: WelcomeComponent },
+      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+      { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
+    ],
+    { useHash: true })
   ],
   bootstrap: [AppComponent]
 })
