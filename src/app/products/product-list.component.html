@@ -41,12 +41,14 @@
                      [style.margin.px]='imageMargin'>
               </td>
               <td>
-                <a [routerLink]="['/products', product.productId]">
+                <a [routerLink]="['/products', product.productId, product.productName,
+                                  product.productCode, product.releaseDate, product.description,
+                                  product.price, product.starRating, product.imageUrl]">
                   <!--If want Product Name reverse, use this line {{ product.productName | reverseStr }}-->
                   {{ product.productName }}
                 </a>
               </td>
-              <td>{{ product.productCode | lowercase | convertToSpace: '-'}}</td>
+              <td>{{ product.productCode | lowercase | convertToSpace: '-' }}</td>
               <td>{{ product.releaseDate }}</td>
               <td>{{ product.price }}</td>
               <td>

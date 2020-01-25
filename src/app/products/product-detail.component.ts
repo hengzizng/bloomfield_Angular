@@ -18,16 +18,24 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit() {
     let id = +this.route.snapshot.paramMap.get('id');
+    let name = this.route.snapshot.paramMap.get('name');
+    let code = this.route.snapshot.paramMap.get('code');
+    let date = this.route.snapshot.paramMap.get('date');
+    let description = this.route.snapshot.paramMap.get('description');
+    let price = +this.route.snapshot.paramMap.get('price');
+    let star = +this.route.snapshot.paramMap.get('star');
+    let image = this.route.snapshot.paramMap.get('image');
+
     this.pageTitle  += `: ${id}`;
     this.product = {
       "productId": id,
-      "productName": "Leaf Rake",
-      "productCode": "GDN-0011",
-      "releaseDate": "March 19, 2016",
-      "description": "Leaf rake with 48-inch wooden handle.",
-      "price": 19.95,
-      "starRating": 3.2,
-      "imageUrl": "https://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
+      "productName": name,
+      "productCode": code,
+      "releaseDate": date,
+      "description": description,
+      "price": price,
+      "starRating": star,
+      "imageUrl": image
     };
 
   }

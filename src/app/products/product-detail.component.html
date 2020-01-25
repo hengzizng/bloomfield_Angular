@@ -28,7 +28,7 @@
                     Code:
                 </td>
                 <td>
-                    {{product.productCode}}
+                    {{product.productCode | lowercase | convertToSpace: '-'}}
                 </td>
             </tr>
             <tr>
