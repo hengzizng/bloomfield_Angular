@@ -5,7 +5,7 @@
         {{pageTitle + ': ' + product.productName}}
     </div>
 
-    <div>
+    <div class="card-body">
         <table>
             <tr>
                 <!-- ppt 104page처럼 만들기 과제(back버튼 제외) -->
@@ -15,6 +15,7 @@
                 <td width=400>
                     {{product.productName}}
                 </td>
+                <!-- rowepan은 6개의 행을 합친다는 의미 -->
                 <td rowspan='6' width=400>
                     <img
                      [src]='product.imageUrl'
@@ -65,5 +66,8 @@
                 </td>
             </tr>
         </table>
+    </div>
+    <div class="card-footer">
+        <button> back </button>
     </div>
 </div>

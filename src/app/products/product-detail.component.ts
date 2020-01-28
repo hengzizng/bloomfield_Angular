@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from './product';
+import { ProductService } from './product.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -11,33 +12,28 @@ import { IProduct } from './product';
 export class ProductDetailComponent implements OnInit {
   pageTitle: string = 'Product Detail';
   product: IProduct;
+  errorMessage: string = '';
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router,
+              private productService: ProductService) {
     console.log(this.route.snapshot.paramMap.get('id'));
   }
 
   ngOnInit() {
     let id = +this.route.snapshot.paramMap.get('id');
-    let name = this.route.snapshot.paramMap.get('name');
-    let code = this.route.snapshot.paramMap.get('code');
-    let date = this.route.snapshot.paramMap.get('date');
-    let description = this.route.snapshot.paramMap.get('description');
-    let price = +this.route.snapshot.paramMap.get('price');
-    let star = +this.route.snapshot.paramMap.get('star');
-    let image = this.route.snapshot.paramMap.get('image');
 
-    this.pageTitle  += `: ${id}`;
-    this.product = {
-      "productId": id,
-      "productName": name,
-      "productCode": code,
-      "releaseDate": date,
-      "description": description,
-      "price": price,
-      "starRating": star,
-      "imageUrl": image
-    };
+    if(id) {
+      this.getProduct(id);
+    }
 
   }
+
+  getProduct(id: number) {
+    this.productService.getProduct(id).subscribe(
+      resultproduct => this.product = resultproduct,
+      error => this.errorMessage = error
+    );
+  }
+
 
 }
