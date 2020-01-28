@@ -14,31 +14,34 @@ import { RouterModule } from '@angular/router';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductDetailComponent } from './products/product-detail.component';
 import { ProductDetailGuard } from './products/product-detail.guard';
+import { ProductModule } from './products/product.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent,
-    ConvertToSpacePipe,
-    StarComponent,
     ReverseStrPipe,
     WelcomeComponent,
-    ProductDetailComponent
+    // ProductListComponent,
+    // ConvertToSpacePipe,
+    // StarComponent,
+    // ProductDetailComponent // product.module.ts 에 있으므로 삭제가능
   ],
   imports: [
     BrowserModule,
     ViewModule,
     RelatedProductsModule,
-    FormsModule,
+    // FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: 'products', component: ProductListComponent },
-      { path: 'products/:id', canActivate: [ProductDetailGuard], component: ProductDetailComponent },
+      // product.modules.ts로 이동
+      // { path: 'products', component: ProductListComponent },
+      // { path: 'products/:id', canActivate: [ProductDetailGuard], component: ProductDetailComponent },
       { path: 'welcome', component: WelcomeComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ],
-    { useHash: true })
+    { useHash: true }),
+    ProductModule
   ],
   bootstrap: [AppComponent]
 })
