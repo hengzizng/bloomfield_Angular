@@ -36,6 +36,7 @@ export class ProductDetailComponent implements OnInit {
   }
   
   onBack(): void {
+    // app.module.ts의 { path: 'products', component: ProductListComponent } 부분 불러옴
     this.router.navigate(['/products']);
   }
 
