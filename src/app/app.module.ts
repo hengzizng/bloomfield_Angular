@@ -21,10 +21,12 @@ import { ProductModule } from './products/product.module';
     AppComponent,
     ReverseStrPipe,
     WelcomeComponent,
+
+    // product.module.ts 로 이동
     // ProductListComponent,
     // ConvertToSpacePipe,
     // StarComponent,
-    // ProductDetailComponent // product.module.ts 에 있으므로 삭제가능
+    // ProductDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +38,7 @@ import { ProductModule } from './products/product.module';
       // product.modules.ts로 이동
       // { path: 'products', component: ProductListComponent },
       // { path: 'products/:id', canActivate: [ProductDetailGuard], component: ProductDetailComponent },
+      
       { path: 'welcome', component: WelcomeComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }

@@ -7,6 +7,7 @@ import { StarComponent } from '../shared/star.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ProductDetailGuard } from './product-detail.guard';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -14,20 +15,27 @@ import { ProductDetailGuard } from './product-detail.guard';
   declarations: [
     ProductListComponent,
     ProductDetailComponent,
-    ConvertToSpacePipe,
-    StarComponent
+    ConvertToSpacePipe
+
+    // shared.module.ts로 이동
+    // StarComponent
   ],
   imports: [
-    CommonModule, // for ngIf
-    FormsModule, // for binding
+    // shared.module.ts로 이동
+    // CommonModule, // for ngIf
+    // FormsModule, // for binding
+
     RouterModule.forChild([
       { path: 'products', component: ProductListComponent },
       { path: 'products/:id', canActivate: [ProductDetailGuard],
                               component: ProductDetailComponent }
-    ])
-  ],
-  exports: [
-    FormsModule
+    ]),
+    SharedModule
   ]
+
+  // shared.module.ts로 이동
+  // exports: [
+  //   FormsModule
+  // ]
 })
 export class ProductModule { }
