@@ -11,6 +11,8 @@ import { ProductService } from './product.service';
 
 export class ProductDetailComponent implements OnInit {
   pageTitle: string = 'Product Detail';
+  imageWidth: number = 200;
+  imageMargin: number = 10;
   product: IProduct;
   errorMessage: string = '';
 
