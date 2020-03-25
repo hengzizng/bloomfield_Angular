@@ -9,7 +9,7 @@ import { tap, catchError, map } from 'rxjs/operators';
 })
 
 export class ProductService {
-    private productUrl: string = 'api/products.json';
+    private productUrl: string = 'https://fi0ogca6sa.execute-api.us-east-1.amazonaws.com/products/getproduct';
 
     constructor(private http: HttpClient) {}
     getProducts() : Observable<IProduct[]> {
